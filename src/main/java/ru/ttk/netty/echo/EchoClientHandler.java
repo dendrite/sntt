@@ -9,9 +9,7 @@ import io.netty.channel.ChannelInboundByteHandlerAdapter;
 import io.netty.util.CharsetUtil;
 
 /**
- * Listing 2.6 of <i>Netty in Action</i>
  *
- * @author <a href="mailto:nmaurer@redhat.com">Norman Maurer</a>
  */
 @Sharable
 public class EchoClientHandler extends ChannelInboundByteHandlerAdapter {
