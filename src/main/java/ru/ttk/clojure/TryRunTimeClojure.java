@@ -1,8 +1,7 @@
 package ru.ttk.clojure;
 
-import clojure.lang.IFn;
+
 import clojure.lang.RT;
-import clojure.lang.Var;
 
 import java.io.IOException;
 
