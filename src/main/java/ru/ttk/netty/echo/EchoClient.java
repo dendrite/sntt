@@ -1,6 +1,4 @@
-package com.manning.nettyinaction.chapter2;
-
-import java.net.InetSocketAddress;
+package ru.ttk.netty.echo;
 
 import io.netty.bootstrap.Bootstrap;
 import io.netty.channel.ChannelFuture;
@@ -8,6 +6,8 @@ import io.netty.channel.ChannelInitializer;
 import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.SocketChannel;
 import io.netty.channel.socket.nio.NioSocketChannel;
+
+import java.net.InetSocketAddress;
 
 /**
  * Listing 2.5  of <i>Netty in Action</i>
@@ -26,6 +26,7 @@ public class EchoClient {
 
     public void start() throws Exception {
         Bootstrap b = new Bootstrap();
+
         try {
             b.group(new NioEventLoopGroup())
                     .channel(NioSocketChannel.class)
@@ -48,6 +49,7 @@ public class EchoClient {
     }
 
     public static void main(String[] args) throws Exception {
+
         if (args.length != 2) {
             System.err.println(
                     "Usage: " + EchoClient.class.getSimpleName() +

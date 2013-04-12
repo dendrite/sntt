@@ -31,7 +31,7 @@ public class PlainEchoServer {
                                     new InputStreamReader(clientSocket.getInputStream()));
                             PrintWriter writer = new PrintWriter(clientSocket
                                     .getOutputStream(), true);
-                            while(true) {
+                            while (true) {
                                 writer.println(reader.readLine());
                                 writer.flush();
                             }

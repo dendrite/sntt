@@ -1,30 +1,145 @@
 <?xml version="1.0" encoding="ISO-8859-15"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
-  <modelVersion>4.0.0</modelVersion>
-  <groupId>me.normanmaurer.nettyinaction</groupId>
-  <artifactId>netty-in-action</artifactId>
-  <name>netty-in-action</name>
-  <version>0.1-SNAPSHOT</version>
-  <build>
-    <plugins>
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-compiler-plugin</artifactId>
-        <version>2.5.1</version>
-        <configuration>
-          <optimize>true</optimize>
-          <source>1.6</source>
-          <target>1.6</target>
-        </configuration>
-      </plugin>
-    </plugins>
-  </build>
- 
-  <dependencies>
-    <dependency>
-      <groupId>io.netty</groupId>
-      <artifactId>netty-all</artifactId>
-      <version>4.0.0.CR1</version>
-    </dependency>
-  </dependencies>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>me.normanmaurer.nettyinaction</groupId>
+    <artifactId>netty-in-action</artifactId>
+    <name>netty-in-action</name>
+    <version>0.1-SNAPSHOT</version>
+
+
+    <dependencies>
+
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.11</version>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>joda-time</groupId>
+            <artifactId>joda-time</artifactId>
+            <version>2.2</version>
+        </dependency>
+
+        <dependency>
+            <groupId>io.netty</groupId>
+            <artifactId>netty-all</artifactId>
+            <version>4.0.0.CR1</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.clojure</groupId>
+            <artifactId>clojure</artifactId>
+            <version>1.5.1</version>
+        </dependency>
+
+        <dependency>
+            <groupId>joda-time</groupId>
+            <artifactId>joda-time</artifactId>
+            <version>2.2</version>
+        </dependency>
+
+    </dependencies>
+
+    <build>
+
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>2.5.1</version>
+                <configuration>
+                    <optimize>true</optimize>
+                    <source>1.6</source>
+                    <target>1.6</target>
+                </configuration>
+            </plugin>
+
+            <plugin>
+                <artifactId>maven-assembly-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>attached</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <archive>
+                        <manifest>
+                            <mainClass>ru.ttk.clojure.TryRunTimeClojure</mainClass>
+                        </manifest>
+                    </archive>
+                    <descriptorRefs>
+                        <descriptorRef>jar-with-dependencies</descriptorRef>
+                    </descriptorRefs>
+                </configuration>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <configuration>
+                    <archive>
+                        <manifest>
+                            <mainClass>ru.ttk.clojure.TryRunTimeClojure</mainClass>
+                        </manifest>
+                    </archive>
+                </configuration>
+            </plugin>
+
+
+            <plugin>
+                <artifactId>maven-resources-plugin</artifactId>
+                <version>2.6</version>
+                <executions>
+                    <execution>
+                        <id>copy-resources</id>
+                        <!-- here the phase you need -->
+                        <phase>validate</phase>
+                        <goals>
+                            <goal>copy-resources</goal>
+                        </goals>
+                        <configuration>
+                            <outputDirectory>${basedir}/target/classes/go</outputDirectory>
+                            <resources>
+                                <resource>
+                                    <directory>src/main/java/go</directory>
+                                    <filtering>true</filtering>
+                                    <!--<include>**/*.clj</include>-->
+                                </resource>
+                            </resources>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+
+        </plugins>
+
+        <!--<resources>-->
+            <!--<resource>-->
+                <!--<directory>${basedir}/src/main/java/go</directory>-->
+                <!--<targetPath>go</targetPath>-->
+                <!--<includes>-->
+                    <!--<include>**/*.clj</include>-->
+                <!--</includes>-->
+                <!--&lt;!&ndash;<directory>${basedir}/go</directory>&ndash;&gt;-->
+                <!--&lt;!&ndash;<filtering>true</filtering>&ndash;&gt;-->
+                <!--&lt;!&ndash;<includes>&ndash;&gt;-->
+                    <!--&lt;!&ndash;<include>core.clj</include>&ndash;&gt;-->
+                    <!--&lt;!&ndash;&lt;!&ndash;<include>file.xml</include>&ndash;&gt;&ndash;&gt;-->
+                <!--&lt;!&ndash;</includes>&ndash;&gt;-->
+            <!--</resource>-->
+        <!--</resources>-->
+    </build>
+
+
+
+    <!--<resource>-->
+        <!--<directory>src/main/clojure</directory>-->
+    <!--</resource>-->
+
 </project>
