@@ -9,7 +9,7 @@ import java.io.Serializable;
  * Date: 4/12/13
  * Time: 6:42 PM
  *
- * @author konilovsky@gmail.com
+ * @author konilovsky
  * @since 1.0
  */
 public class RunClojureHttpServer implements Serializable {
