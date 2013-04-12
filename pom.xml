@@ -40,10 +40,11 @@
             <artifactId>joda-time</artifactId>
             <version>2.2</version>
         </dependency>
+
         <dependency>
-            <groupId>org.clojure</groupId>
-            <artifactId>clojure</artifactId>
-            <version>1.5.1</version>
+            <groupId>io.netty</groupId>
+            <artifactId>netty</artifactId>
+            <version>3.6.3.Final</version>
         </dependency>
 
     </dependencies>
